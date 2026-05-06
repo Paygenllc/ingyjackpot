@@ -27,23 +27,23 @@ export default function ReviewsPage() {
     <main className="min-h-screen pb-16">
       <PageHero title="Reviews" trail="Client experiences" />
 
-      <section className="mx-auto max-w-3xl px-4 py-12 text-center lg:px-8">
-        <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-primary md:text-4xl">
+      <section className="mx-auto max-w-3xl px-3 py-8 text-center sm:px-4 sm:py-12 lg:px-8">
+        <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-primary sm:text-3xl md:text-4xl">
           Client Experiences
         </h2>
-        <p className="mt-6 text-base leading-relaxed text-muted-foreground">
+        <p className="mt-4 text-sm leading-relaxed text-muted-foreground sm:mt-6 sm:text-base">
           At INGYJACKPOT CITYSLOTS, we are committed to providing the best possible experience for our customers.
           We value your feedback and continuously strive to improve our products and services.
         </p>
 
-        <p className="mt-10 text-sm text-muted-foreground">
+        <p className="mt-8 text-sm text-muted-foreground sm:mt-10">
           No approved reviews yet. Be the first to leave one below.
         </p>
       </section>
 
-      <section className="mx-auto max-w-3xl px-4 lg:px-8">
-        <div className="rounded-2xl border border-primary/40 bg-card/40 p-8 shadow-[0_0_50px_rgba(217,70,239,0.2)] backdrop-blur">
-          <h3 className="text-center font-display text-2xl uppercase tracking-wider text-primary">Leave a Review</h3>
+      <section className="mx-auto max-w-3xl px-3 sm:px-4 lg:px-8">
+        <div className="rounded-2xl border border-primary/40 bg-card/40 p-5 shadow-[0_0_50px_rgba(217,70,239,0.2)] backdrop-blur sm:p-8">
+          <h3 className="text-center font-display text-xl uppercase tracking-wider text-primary sm:text-2xl">Leave a Review</h3>
           <p className="mt-3 text-center text-sm text-muted-foreground">
             Please write a few words about our services and how professional and legitimate we are.
           </p>

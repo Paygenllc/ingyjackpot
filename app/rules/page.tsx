@@ -79,7 +79,7 @@ export default function RulesPage() {
     <main className="min-h-screen pb-16">
       <PageHero title="Casino Rules" trail="Rules" />
 
-      <section className="mx-auto grid max-w-7xl gap-8 px-4 py-12 lg:grid-cols-[260px_1fr] lg:px-8">
+      <section className="mx-auto grid max-w-7xl gap-6 px-3 py-8 sm:gap-8 sm:px-4 sm:py-12 lg:grid-cols-[260px_1fr] lg:px-8">
         <aside className="hidden lg:block">
           <nav aria-label="Rules sections" className="sticky top-24 flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
@@ -94,13 +94,13 @@ export default function RulesPage() {
           </nav>
         </aside>
 
-        <div className="flex flex-col gap-10">
+        <div className="flex flex-col gap-8 sm:gap-10">
           {SECTIONS.map((section) => (
             <article key={section.id} id={section.id} className="scroll-mt-28">
-              <h2 className="font-display text-2xl uppercase tracking-wider text-foreground md:text-3xl">
+              <h2 className="font-display text-xl uppercase tracking-wider text-foreground sm:text-2xl md:text-3xl">
                 {section.title}
               </h2>
-              <div className="mt-4 flex flex-col gap-3 text-base leading-relaxed text-muted-foreground">
+              <div className="mt-3 flex flex-col gap-3 text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-base">
                 {section.body.map((line, i) => (
                   <p key={i}>{line}</p>
                 ))}

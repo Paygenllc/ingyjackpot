@@ -82,9 +82,9 @@ function TierBadge({ ribbon, star }: { ribbon: string; star: string }) {
 
 function TierCard({ tier }: { tier: Tier }) {
   return (
-    <div className="rounded-2xl border border-primary/30 bg-card/40 p-8 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur">
+    <div className="rounded-2xl border border-primary/30 bg-card/40 p-5 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur sm:p-8">
       <TierBadge ribbon={tier.ribbon} star={tier.star} />
-      <h3 className="mt-4 text-center font-display text-3xl uppercase tracking-widest text-foreground">
+      <h3 className="mt-3 text-center font-display text-2xl uppercase tracking-widest text-foreground sm:mt-4 sm:text-3xl">
         {tier.name}
       </h3>
       <p className="mt-2 text-center text-sm text-muted-foreground">{tier.subtitle}</p>
@@ -115,32 +115,32 @@ export default function TiersPage() {
     <main className="min-h-screen pb-16">
       <PageHero title="Loyalty Rewards" trail="Loyalty Rewards" />
 
-      <section className="mx-auto max-w-6xl px-4 py-12 lg:px-8">
+      <section className="mx-auto max-w-6xl px-3 py-8 sm:px-4 sm:py-12 lg:px-8">
         <div className="text-center">
-          <h2 className="font-display text-3xl font-bold uppercase tracking-wider text-foreground md:text-4xl">
+          <h2 className="font-display text-2xl font-bold uppercase tracking-wider text-foreground text-balance sm:text-3xl md:text-4xl">
             Welcome to our Loyalty Rewards Program
           </h2>
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:mt-5 sm:text-base">
             Welcome to our Loyalty Rewards Program, where every wager earns points and every tier unlocks bigger
             bonuses, faster redemptions, and exclusive perks. Move up the levels to maximize your rewards!
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2">
+        <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-6 md:grid-cols-2">
           {TIERS.map((tier) => (
             <TierCard key={tier.name} tier={tier} />
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-primary/40 bg-card/40 p-10 text-center shadow-[0_0_60px_rgba(217,70,239,0.2)] backdrop-blur">
-          <h3 className="font-display text-2xl uppercase tracking-widest text-foreground md:text-3xl">
+        <div className="mt-8 rounded-2xl border border-primary/40 bg-card/40 p-5 text-center shadow-[0_0_60px_rgba(217,70,239,0.2)] backdrop-blur sm:mt-12 sm:p-10">
+          <h3 className="font-display text-xl uppercase tracking-widest text-foreground sm:text-2xl md:text-3xl">
             Level Up &amp; Earn More
           </h3>
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:mt-4 sm:text-base">
             Upgrade your tier as you play to unlock higher bonuses, larger daily redemption limits, and faster cashout
             access. The more you play, the more you earn.
           </p>
-          <button className="mt-8 rounded-md bg-gradient-to-r from-primary to-accent px-8 py-4 font-display text-sm font-bold uppercase tracking-widest text-primary-foreground shadow-[0_0_30px_rgba(217,70,239,0.6)] transition hover:brightness-110">
+          <button className="mt-6 w-full rounded-md bg-gradient-to-r from-primary to-accent px-5 py-3 font-display text-xs font-bold uppercase tracking-widest text-primary-foreground shadow-[0_0_30px_rgba(217,70,239,0.6)] transition hover:brightness-110 sm:mt-8 sm:w-auto sm:px-8 sm:py-4 sm:text-sm">
             See your progress and current level here
           </button>
         </div>

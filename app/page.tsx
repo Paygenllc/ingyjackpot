@@ -9,8 +9,8 @@ export default function HomePage() {
     <>
       {/* Welcome banner */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto w-full max-w-7xl px-4 pt-6 sm:px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-border/40 bg-gradient-to-br from-emerald-700/40 via-emerald-900/40 to-zinc-900/60">
+        <div className="mx-auto w-full max-w-7xl px-3 pt-4 sm:px-6 sm:pt-6">
+          <div className="relative overflow-hidden rounded-2xl border border-border/40 bg-gradient-to-br from-emerald-700/40 via-emerald-900/40 to-zinc-900/60 sm:rounded-3xl">
             <div
               className="pointer-events-none absolute inset-0 opacity-30"
               style={{
@@ -19,8 +19,8 @@ export default function HomePage() {
               }}
               aria-hidden
             />
-            <div className="relative grid items-center gap-6 px-6 py-10 sm:grid-cols-[auto_1fr] sm:px-10 sm:py-14">
-              <div className="mx-auto sm:mx-0 size-32 sm:size-40 rounded-3xl ring-1 ring-border/60 overflow-hidden shadow-xl">
+            <div className="relative grid items-center gap-4 px-4 py-6 sm:grid-cols-[auto_1fr] sm:gap-6 sm:px-10 sm:py-14">
+              <div className="mx-auto sm:mx-0 size-24 sm:size-40 rounded-2xl ring-1 ring-border/60 overflow-hidden shadow-xl sm:rounded-3xl">
                 <Image
                   src="/logo.jpeg"
                   alt="INGYJACKPOT CITYSLOTS"
@@ -31,13 +31,13 @@ export default function HomePage() {
                 />
               </div>
               <div className="text-center sm:text-left">
-                <p className="text-xs uppercase tracking-[0.3em] text-amber-200">
+                <p className="text-[10px] uppercase tracking-[0.25em] text-amber-200 sm:text-xs sm:tracking-[0.3em]">
                   Welcome to your fortune
                 </p>
-                <h1 className="mt-2 font-heading text-4xl sm:text-5xl font-extrabold uppercase text-white drop-shadow-[0_2px_18px_rgba(0,0,0,0.5)]">
+                <h1 className="mt-1.5 font-heading text-2xl font-extrabold uppercase text-white text-balance drop-shadow-[0_2px_18px_rgba(0,0,0,0.5)] sm:mt-2 sm:text-5xl">
                   INGYJACKPOT <span className="text-amber-300">CITYSLOTS</span>
                 </h1>
-                <p className="mt-3 max-w-2xl text-sm sm:text-base text-white/85">
+                <p className="mt-2 max-w-2xl text-xs leading-relaxed text-white/85 sm:mt-3 sm:text-base">
                   Premium online casino. Play your favorite slots and games, deposit
                   in seconds, cash out 24/7, and climb the loyalty tiers for bigger
                   bonuses.
@@ -51,13 +51,13 @@ export default function HomePage() {
       <MarqueeBar />
 
       {/* Games grid */}
-      <section className="mx-auto w-full max-w-7xl px-4 py-10 sm:px-6 sm:py-14">
-        <div className="mb-8 flex items-end justify-between gap-4">
+      <section className="mx-auto w-full max-w-7xl px-3 py-8 sm:px-6 sm:py-14">
+        <div className="mb-5 flex items-end justify-between gap-4 sm:mb-8">
           <div>
-            <p className="text-xs uppercase tracking-[0.3em] text-primary">
+            <p className="text-[10px] uppercase tracking-[0.25em] text-primary sm:text-xs sm:tracking-[0.3em]">
               Selection
             </p>
-            <h2 className="mt-1 font-heading text-3xl sm:text-4xl font-bold uppercase">
+            <h2 className="mt-1 font-heading text-2xl font-bold uppercase sm:text-4xl">
               Games we offer
             </h2>
           </div>
@@ -66,7 +66,7 @@ export default function HomePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4">
           {GAMES.map((game) => (
             <GameTile key={game.slug} game={game} />
           ))}
@@ -75,11 +75,11 @@ export default function HomePage() {
 
       {/* Why play */}
       <section className="border-t border-border/40 bg-card/20">
-        <div className="mx-auto w-full max-w-3xl px-4 py-14 text-center sm:px-6">
-          <h2 className="font-heading text-3xl font-bold uppercase text-foreground">
+        <div className="mx-auto w-full max-w-3xl px-4 py-10 text-center sm:px-6 sm:py-14">
+          <h2 className="font-heading text-2xl font-bold uppercase text-foreground sm:text-3xl">
             Why play our casino
           </h2>
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-muted-foreground">
+          <div className="mt-5 flex flex-col gap-4 text-sm leading-relaxed text-muted-foreground sm:mt-6">
             <p>
               Are you searching for the finest online casino to enjoy your gaming
               experience? If so, you have come to the right destination. INGYJACKPOT

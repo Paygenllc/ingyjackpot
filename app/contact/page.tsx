@@ -50,20 +50,20 @@ export default function ContactPage() {
     <main className="min-h-screen pb-16">
       <PageHero title="Contact Us" trail="Contact" />
 
-      <section className="mx-auto grid max-w-7xl gap-6 px-4 py-12 lg:grid-cols-2 lg:px-8">
-        <div className="rounded-2xl border border-primary/30 bg-card/40 p-8 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur">
-          <h2 className="font-display text-2xl uppercase tracking-wider text-foreground">Contact Information</h2>
-          <p className="mt-4 max-w-md text-sm text-muted-foreground">
+      <section className="mx-auto grid max-w-7xl gap-4 px-3 py-8 sm:gap-6 sm:px-4 sm:py-12 lg:grid-cols-2 lg:px-8">
+        <div className="rounded-2xl border border-primary/30 bg-card/40 p-5 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur sm:p-8">
+          <h2 className="font-display text-xl uppercase tracking-wider text-foreground sm:text-2xl">Contact Information</h2>
+          <p className="mt-3 max-w-md text-sm text-muted-foreground sm:mt-4">
             Get in touch with us. We&apos;re here to help you with any questions or concerns.
           </p>
 
-          <div className="mt-8 flex flex-col gap-6">
+          <div className="mt-6 flex flex-col gap-5 sm:mt-8 sm:gap-6">
             <InfoRow icon={Send} label="Telegram" value="@INGYJackpotCitySlots" />
             <InfoRow icon={Mail} label="Email" value="support@ingyjackpot.com" />
             <InfoRow icon={MessageCircle} label="Chat Now" value="Live agents 24/7" />
           </div>
 
-          <div className="mt-10">
+          <div className="mt-8 sm:mt-10">
             <p className="text-xs font-semibold uppercase tracking-widest text-foreground/90">Follow us</p>
             <div className="mt-3 flex items-center gap-3">
               <a
@@ -90,8 +90,8 @@ export default function ContactPage() {
           </div>
         </div>
 
-        <div className="rounded-2xl border border-primary/30 bg-card/40 p-8 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur">
-          <h2 className="font-display text-2xl uppercase tracking-wider text-foreground">Get In Touch</h2>
+        <div className="rounded-2xl border border-primary/30 bg-card/40 p-5 shadow-[0_0_50px_rgba(168,85,247,0.15)] backdrop-blur sm:p-8">
+          <h2 className="font-display text-xl uppercase tracking-wider text-foreground sm:text-2xl">Get In Touch</h2>
           <p className="mt-3 text-sm text-muted-foreground">
             Fill out the form below and we&apos;ll get back to you as soon as possible.
           </p>
