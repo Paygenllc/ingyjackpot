@@ -63,7 +63,7 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/85 bg-background/95">
       {/* Top bar */}
-      <div className="mx-auto flex w-full max-w-7xl items-center gap-3 px-4 py-3 sm:gap-4 sm:px-6">
+      <div className="mx-auto flex w-full max-w-7xl items-center gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3">
         <Link
           href="/"
           aria-label="INGYJACKPOT CITYSLOTS home"
@@ -74,7 +74,7 @@ export function SiteHeader() {
             alt="INGYJACKPOT CITYSLOTS logo"
             width={64}
             height={64}
-            className="size-12 sm:size-14 object-cover"
+            className="size-10 sm:size-14 object-cover"
             priority
           />
         </Link>
@@ -98,9 +98,9 @@ export function SiteHeader() {
         {/* Mobile compact balance */}
         <Link
           href="/wallet"
-          className="md:hidden inline-flex items-center gap-1 rounded-full bg-primary px-3 py-1.5 text-primary-foreground text-sm neon-button-glow"
+          className="md:hidden inline-flex items-center gap-1 rounded-full bg-primary px-2.5 py-1.5 text-primary-foreground text-xs neon-button-glow"
         >
-          <WalletCards className="size-4" />
+          <WalletCards className="size-3.5" />
           <span className="font-semibold">$0.00</span>
         </Link>
 
@@ -110,19 +110,20 @@ export function SiteHeader() {
             render={
               <button
                 type="button"
-                className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 bg-card/60 px-2 pr-3 hover:bg-card transition"
+                aria-label="Account menu"
+                className="inline-flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2 rounded-full border border-border/60 bg-card/60 pl-1 pr-2 sm:pl-2 sm:pr-3 hover:bg-card transition"
               >
-                <Avatar className="size-8 ring-2 ring-primary/60">
-                  <AvatarFallback className="bg-primary/30 text-foreground text-xs">
+                <Avatar className="size-7 sm:size-8 ring-2 ring-primary/60">
+                  <AvatarFallback className="bg-primary/30 text-foreground text-[10px] sm:text-xs">
                     PL
                   </AvatarFallback>
                 </Avatar>
                 <span className="hidden sm:inline text-sm font-medium">Player</span>
-                <ChevronDown className="size-4 opacity-70" />
+                <ChevronDown className="size-3.5 sm:size-4 opacity-70" />
               </button>
             }
           />
-          <DropdownMenuContent align="end" sideOffset={8} className="w-60 p-2">
+          <DropdownMenuContent align="end" sideOffset={8} className="w-56 sm:w-60 p-2">
             <DropdownMenuGroup>
               {ACCOUNT_ITEMS.map((item) => {
                 const Icon = item.icon
@@ -159,10 +160,10 @@ export function SiteHeader() {
         <button
           type="button"
           aria-label="Notifications"
-          className="relative inline-flex size-10 items-center justify-center rounded-full border border-border/60 bg-card/60 hover:bg-card transition"
+          className="relative inline-flex size-9 sm:size-10 items-center justify-center rounded-full border border-border/60 bg-card/60 hover:bg-card transition"
         >
-          <Bell className="size-4" />
-          <Badge className="absolute -top-1 -right-1 size-5 p-0 flex items-center justify-center rounded-full bg-rose-500 text-[10px] text-white">
+          <Bell className="size-3.5 sm:size-4" />
+          <Badge className="absolute -top-1 -right-1 size-4 sm:size-5 p-0 flex items-center justify-center rounded-full bg-rose-500 text-[9px] sm:text-[10px] text-white">
             1
           </Badge>
         </button>
@@ -171,7 +172,7 @@ export function SiteHeader() {
       {/* Bottom nav */}
       <nav className="border-t border-border/40 bg-card/40">
         <ul
-          className="mx-auto flex w-full max-w-7xl items-center gap-1 overflow-x-auto px-4 sm:px-6"
+          className="mx-auto flex w-full max-w-7xl items-center gap-0 overflow-x-auto px-2 sm:gap-1 sm:px-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
           aria-label="Primary"
         >
           {NAV_ITEMS.map((item) => {
@@ -181,7 +182,7 @@ export function SiteHeader() {
                 <Link
                   href={item.href}
                   className={cn(
-                    "relative inline-flex h-11 items-center px-4 text-[13px] font-semibold tracking-[0.18em] uppercase whitespace-nowrap transition-colors",
+                    "relative inline-flex h-10 items-center px-3 text-[11px] font-semibold tracking-[0.15em] uppercase whitespace-nowrap transition-colors sm:h-11 sm:px-4 sm:text-[13px] sm:tracking-[0.18em]",
                     isActive ? "text-primary" : "text-foreground/85 hover:text-foreground",
                   )}
                 >

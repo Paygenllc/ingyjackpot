@@ -15,13 +15,13 @@ export function MarqueeBar() {
   return (
     <div className="border-y border-primary/30 bg-gradient-to-r from-primary/15 via-primary/5 to-primary/15 overflow-hidden">
       <div className="relative">
-        <div className="flex gap-10 whitespace-nowrap py-2.5 animate-[marquee_38s_linear_infinite]">
+        <div className="flex gap-6 whitespace-nowrap py-2 animate-[marquee_38s_linear_infinite] sm:gap-10 sm:py-2.5">
           {items.map((message, idx) => (
             <span
               key={`${message}-${idx}`}
-              className="inline-flex items-center gap-2 text-sm text-foreground/90"
+              className="inline-flex items-center gap-1.5 text-xs text-foreground/90 sm:gap-2 sm:text-sm"
             >
-              <Flame className="size-4 text-primary" />
+              <Flame className="size-3.5 text-primary sm:size-4" />
               {message}
             </span>
           ))}

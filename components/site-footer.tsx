@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator"
 const LEGAL_LINKS = [
   { label: "Terms and Conditions", href: "/terms" },
   { label: "Privacy Policy", href: "/privacy" },
-  { label: "SMS Opt In Policy", href: "/sms-policy" },
+  { label: "SMS Opt In Policy", href: "/sms-opt-in" },
 ]
 
 function InstagramIcon({ className }: { className?: string }) {
@@ -44,7 +44,7 @@ function FacebookIcon({ className }: { className?: string }) {
 export function SiteFooter() {
   return (
     <footer className="border-t border-border/40 bg-card/30 mt-12">
-      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-8 px-4 py-12 sm:px-6">
+      <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-4 py-8 sm:gap-8 sm:px-6 sm:py-12">
         <Link
           href="/"
           aria-label="INGYJACKPOT CITYSLOTS"
@@ -55,11 +55,11 @@ export function SiteFooter() {
             alt="INGYJACKPOT CITYSLOTS logo"
             width={140}
             height={140}
-            className="size-32"
+            className="size-24 sm:size-32"
           />
         </Link>
 
-        <ul className="flex flex-wrap items-center justify-center gap-6 text-sm text-muted-foreground">
+        <ul className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-muted-foreground sm:gap-6 sm:text-sm">
           {LEGAL_LINKS.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className="hover:text-foreground transition-colors">
@@ -97,7 +97,7 @@ export function SiteFooter() {
 
         <Separator className="bg-border/40" />
 
-        <p className="text-center text-xs uppercase tracking-[0.25em] text-muted-foreground">
+        <p className="text-center text-[10px] uppercase tracking-[0.2em] text-muted-foreground sm:text-xs sm:tracking-[0.25em]">
           Copyright {new Date().getFullYear()} &copy; INGYJACKPOT CITYSLOTS, LLC.
         </p>
       </div>
