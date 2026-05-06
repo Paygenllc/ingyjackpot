@@ -91,8 +91,8 @@ export const GAMES: Game[] = [
     gradient: "from-emerald-500/25 via-green-700/20 to-zinc-900/60",
   },
   {
-    slug: "milky-way",
-    name: "Milky Way",
+    slug: "milkyways",
+    name: "Milkyways",
     tagline: "Spin among the stars",
     gradient: "from-indigo-500/30 via-violet-700/20 to-zinc-900/60",
   },
@@ -110,8 +110,8 @@ export const GAMES: Game[] = [
   },
   {
     slug: "juwa-2",
-    name: "Juwa Games",
-    tagline: "More Juwa, more wins",
+    name: "Juwa 2",
+    tagline: "Next-gen Juwa with bigger wins",
     gradient: "from-yellow-500/25 via-amber-700/20 to-zinc-900/60",
   },
   {
