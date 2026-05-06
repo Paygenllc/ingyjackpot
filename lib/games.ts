@@ -18,9 +18,9 @@ export const GAMES: Game[] = [
     badge: "Hot",
   },
   {
-    slug: "game-vault",
-    name: "Game Vault",
-    tagline: "Classic vault adventure",
+    slug: "e-gaming",
+    name: "E-Gaming",
+    tagline: "Premium e-gaming experience",
     gradient: "from-yellow-500/30 via-amber-600/20 to-zinc-900/60",
   },
   {
