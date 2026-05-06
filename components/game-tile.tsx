@@ -1,3 +1,4 @@
+import Image from "next/image"
 import { Plus } from "lucide-react"
 
 import type { Game } from "@/lib/games"
@@ -32,12 +33,22 @@ export function GameTile({ game }: { game: Game }) {
         </span>
       )}
 
-      {/* Title */}
+      {/* Content */}
       <div className="relative z-10 flex h-full flex-col">
         <div className="flex-1 grid place-items-center px-1 text-center sm:px-2">
-          <h3 className="font-heading text-base font-extrabold uppercase tracking-tight text-white text-balance drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-2xl">
-            {game.name}
-          </h3>
+          {game.image ? (
+            <Image
+              src={game.image}
+              alt={`${game.name} logo`}
+              width={280}
+              height={280}
+              className="size-full max-h-full object-contain drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)] transition-transform duration-300 group-hover:scale-[1.04]"
+            />
+          ) : (
+            <h3 className="font-heading text-base font-extrabold uppercase tracking-tight text-white text-balance drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)] sm:text-2xl">
+              {game.name}
+            </h3>
+          )}
         </div>
 
         <div className="flex flex-col gap-1.5 sm:gap-2">
