@@ -1,0 +1,180 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+    --font-heading: var(--font-orbitron);
+    --font-sans: var(--font-sans);
+    --font-mono: var(--font-mono);
+    --color-sidebar-ring: var(--sidebar-ring);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar: var(--sidebar);
+    --color-chart-5: var(--chart-5);
+    --color-chart-4: var(--chart-4);
+    --color-chart-3: var(--chart-3);
+    --color-chart-2: var(--chart-2);
+    --color-chart-1: var(--chart-1);
+    --color-ring: var(--ring);
+    --color-input: var(--input);
+    --color-border: var(--border);
+    --color-destructive: var(--destructive);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-accent: var(--accent);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-muted: var(--muted);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-secondary: var(--secondary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-primary: var(--primary);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-popover: var(--popover);
+    --color-card-foreground: var(--card-foreground);
+    --color-card: var(--card);
+    --color-foreground: var(--foreground);
+    --color-background: var(--background);
+    --color-neon: var(--neon);
+    --color-neon-foreground: var(--neon-foreground);
+    --radius-sm: calc(var(--radius) * 0.6);
+    --radius-md: calc(var(--radius) * 0.8);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) * 1.4);
+    --radius-2xl: calc(var(--radius) * 1.8);
+    --radius-3xl: calc(var(--radius) * 2.2);
+    --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/*
+  Casino theme — deep purple background, magenta/pink neon accents.
+  We force the dark palette by default; there is no light mode for this site.
+*/
+:root {
+    --background: oklch(0.16 0.08 295);
+    --foreground: oklch(0.98 0 0);
+
+    --card: oklch(0.20 0.10 295);
+    --card-foreground: oklch(0.98 0 0);
+
+    --popover: oklch(0.18 0.09 295);
+    --popover-foreground: oklch(0.98 0 0);
+
+    /* Magenta/pink primary used for buttons and highlights */
+    --primary: oklch(0.72 0.28 330);
+    --primary-foreground: oklch(0.99 0 0);
+
+    --secondary: oklch(0.28 0.10 295);
+    --secondary-foreground: oklch(0.98 0 0);
+
+    --muted: oklch(0.24 0.08 295);
+    --muted-foreground: oklch(0.78 0.04 300);
+
+    --accent: oklch(0.32 0.14 305);
+    --accent-foreground: oklch(0.99 0 0);
+
+    --destructive: oklch(0.66 0.22 25);
+
+    --border: oklch(0.36 0.16 305 / 50%);
+    --input: oklch(0.28 0.12 300 / 60%);
+    --ring: oklch(0.72 0.28 330);
+
+    --chart-1: oklch(0.72 0.28 330);
+    --chart-2: oklch(0.65 0.22 290);
+    --chart-3: oklch(0.78 0.18 80);
+    --chart-4: oklch(0.62 0.20 200);
+    --chart-5: oklch(0.55 0.20 260);
+
+    --neon: oklch(0.78 0.30 330);
+    --neon-foreground: oklch(0.99 0 0);
+
+    --radius: 0.75rem;
+
+    --sidebar: oklch(0.18 0.09 295);
+    --sidebar-foreground: oklch(0.98 0 0);
+    --sidebar-primary: oklch(0.72 0.28 330);
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    --sidebar-accent: oklch(0.28 0.12 295);
+    --sidebar-accent-foreground: oklch(0.98 0 0);
+    --sidebar-border: oklch(0.36 0.16 305 / 50%);
+    --sidebar-ring: oklch(0.72 0.28 330);
+}
+
+.dark {
+    --background: oklch(0.16 0.08 295);
+    --foreground: oklch(0.98 0 0);
+    --card: oklch(0.20 0.10 295);
+    --card-foreground: oklch(0.98 0 0);
+    --popover: oklch(0.18 0.09 295);
+    --popover-foreground: oklch(0.98 0 0);
+    --primary: oklch(0.72 0.28 330);
+    --primary-foreground: oklch(0.99 0 0);
+    --secondary: oklch(0.28 0.10 295);
+    --secondary-foreground: oklch(0.98 0 0);
+    --muted: oklch(0.24 0.08 295);
+    --muted-foreground: oklch(0.78 0.04 300);
+    --accent: oklch(0.32 0.14 305);
+    --accent-foreground: oklch(0.99 0 0);
+    --destructive: oklch(0.66 0.22 25);
+    --border: oklch(0.36 0.16 305 / 50%);
+    --input: oklch(0.28 0.12 300 / 60%);
+    --ring: oklch(0.72 0.28 330);
+    --chart-1: oklch(0.72 0.28 330);
+    --chart-2: oklch(0.65 0.22 290);
+    --chart-3: oklch(0.78 0.18 80);
+    --chart-4: oklch(0.62 0.20 200);
+    --chart-5: oklch(0.55 0.20 260);
+    --neon: oklch(0.78 0.30 330);
+    --neon-foreground: oklch(0.99 0 0);
+    --sidebar: oklch(0.18 0.09 295);
+    --sidebar-foreground: oklch(0.98 0 0);
+    --sidebar-primary: oklch(0.72 0.28 330);
+    --sidebar-primary-foreground: oklch(0.99 0 0);
+    --sidebar-accent: oklch(0.28 0.12 295);
+    --sidebar-accent-foreground: oklch(0.98 0 0);
+    --sidebar-border: oklch(0.36 0.16 305 / 50%);
+    --sidebar-ring: oklch(0.72 0.28 330);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans bg-background;
+  }
+}
+
+@layer utilities {
+  .font-heading {
+    font-family: var(--font-heading), var(--font-sans);
+    letter-spacing: 0.04em;
+  }
+  .neon-text {
+    color: oklch(0.85 0.25 330);
+    text-shadow:
+      0 0 6px oklch(0.78 0.30 330 / 0.7),
+      0 0 18px oklch(0.78 0.30 330 / 0.4);
+  }
+  .neon-button-glow {
+    box-shadow:
+      0 0 14px oklch(0.78 0.30 330 / 0.55),
+      0 0 28px oklch(0.78 0.30 330 / 0.25);
+  }
+  .casino-hero-bg {
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 30%, oklch(0.40 0.18 320 / 0.55), transparent 70%),
+      radial-gradient(ellipse 80% 60% at 50% 0%, oklch(0.30 0.14 310 / 0.7), transparent 80%),
+      linear-gradient(to bottom, oklch(0.20 0.10 295), oklch(0.16 0.08 295));
+  }
+  .balance-bar-bg {
+    background: linear-gradient(90deg, oklch(0.30 0.14 305), oklch(0.26 0.12 295), oklch(0.30 0.14 305));
+  }
+}
