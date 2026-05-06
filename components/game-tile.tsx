@@ -8,7 +8,7 @@ export function GameTile({ game }: { game: Game }) {
   return (
     <article
       className={cn(
-        "group relative aspect-[4/5] overflow-hidden rounded-xl border border-border/40 bg-gradient-to-br p-2.5 transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-primary/30 sm:rounded-2xl sm:p-4",
+        "group relative aspect-[4/5] overflow-hidden rounded-xl border-2 border-primary/70 bg-gradient-to-br p-2.5 shadow-[0_0_0_1px_rgba(217,70,239,0.35),0_0_18px_-2px_rgba(217,70,239,0.55)] transition-all duration-300 hover:scale-[1.02] hover:border-primary hover:shadow-[0_0_0_1px_rgba(217,70,239,0.6),0_0_28px_-2px_rgba(217,70,239,0.85)] sm:rounded-2xl sm:p-4",
         game.gradient,
       )}
     >
