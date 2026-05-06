@@ -1,6 +1,13 @@
+"use client"
+
 import Link from "next/link"
 
+import { useSession } from "@/lib/auth"
+
 export function BalanceBar() {
+  const { isAuthenticated } = useSession()
+  if (!isAuthenticated) return null
+
   return (
     <div className="balance-bar-bg border-y border-border/40">
       <div className="mx-auto flex w-full max-w-7xl flex-wrap items-center justify-center gap-x-2 gap-y-0.5 px-4 py-2 text-center text-xs sm:py-2.5 sm:text-sm sm:px-6">

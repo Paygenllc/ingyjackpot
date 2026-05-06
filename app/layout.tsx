@@ -7,6 +7,7 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { BalanceBar } from "@/components/balance-bar"
 import { Toaster } from "@/components/ui/sonner"
+import { AuthProvider } from "@/lib/auth"
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,11 +48,13 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen flex flex-col bg-background text-foreground">
-        <SiteHeader />
-        <BalanceBar />
-        <main className="flex-1">{children}</main>
-        <SiteFooter />
-        <Toaster />
+        <AuthProvider>
+          <SiteHeader />
+          <BalanceBar />
+          <main className="flex-1">{children}</main>
+          <SiteFooter />
+          <Toaster />
+        </AuthProvider>
       </body>
     </html>
   )

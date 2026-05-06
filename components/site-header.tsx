@@ -41,6 +41,7 @@ import {
 } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
+import { useSession } from "@/lib/auth"
 
 const NAV_ITEMS = [
   { label: "HOME", href: "/" },
@@ -68,6 +69,8 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [muted, setMuted] = useState(false)
   const [sheetOpen, setSheetOpen] = useState(false)
+  const { isAuthenticated, user, signIn, signOut } = useSession()
+  const handleMockSignIn = () => signIn("Player")
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/85 bg-background/95">
@@ -88,20 +91,34 @@ export function SiteHeader() {
           />
         </Link>
 
-        {/* Mobile auth buttons */}
+        {/* Mobile auth buttons (only when logged out) */}
         <div className="flex flex-1 items-center justify-end gap-2 md:hidden">
-          <Link
-            href="/sign-up"
-            className="inline-flex h-9 items-center rounded-full bg-primary px-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-primary-foreground neon-button-glow hover:brightness-110 transition"
-          >
-            Join Now
-          </Link>
-          <Link
-            href="/sign-in"
-            className="inline-flex h-9 items-center rounded-full border border-primary/60 bg-card/60 px-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-foreground hover:bg-card transition"
-          >
-            Log In
-          </Link>
+          {!isAuthenticated ? (
+            <>
+              <button
+                type="button"
+                onClick={handleMockSignIn}
+                className="inline-flex h-9 items-center rounded-full bg-primary px-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-primary-foreground neon-button-glow hover:brightness-110 transition"
+              >
+                Join Now
+              </button>
+              <button
+                type="button"
+                onClick={handleMockSignIn}
+                className="inline-flex h-9 items-center rounded-full border border-primary/60 bg-card/60 px-3.5 text-[11px] font-bold uppercase tracking-[0.12em] text-foreground hover:bg-card transition"
+              >
+                Log In
+              </button>
+            </>
+          ) : (
+            <Link
+              href="/wallet"
+              className="inline-flex h-9 items-center gap-2 rounded-full bg-primary/15 px-3 text-[11px] font-bold uppercase tracking-[0.12em] text-foreground ring-1 ring-primary/40"
+            >
+              <WalletCards className="size-3.5 text-primary" />
+              <span className="font-bold text-primary">$0.00</span>
+            </Link>
+          )}
           <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
             <SheetTrigger
               render={
@@ -203,15 +220,21 @@ export function SiteHeader() {
                         </li>
                       )
                     })}
-                    <li>
-                      <button
-                        type="button"
-                        className="flex h-10 w-full items-center gap-3 rounded-lg px-3 text-sm transition hover:bg-card"
-                      >
-                        <LogOut className="size-4 text-primary" />
-                        Sign Out
-                      </button>
-                    </li>
+                    {isAuthenticated && (
+                      <li>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            signOut()
+                            setSheetOpen(false)
+                          }}
+                          className="flex h-10 w-full items-center gap-3 rounded-lg px-3 text-sm transition hover:bg-card"
+                        >
+                          <LogOut className="size-4 text-primary" />
+                          Sign Out
+                        </button>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </div>
@@ -219,63 +242,89 @@ export function SiteHeader() {
           </Sheet>
         </div>
 
-        {/* Action buttons — desktop */}
-        <div className="hidden md:flex items-center gap-3">
-          <ActionPill href="/purchase" icon={<Ticket className="size-4" />}>
-            Purchase
-          </ActionPill>
-          <ActionPill href="/cashout" icon={<Banknote className="size-4" />}>
-            Cashout
-          </ActionPill>
-          <ActionPill href="/wallet" icon={<WalletCards className="size-4" />}>
-            <span className="font-semibold">$0.00</span>
-            <span className="ml-1 text-[11px] uppercase tracking-wide opacity-80">USD</span>
-          </ActionPill>
-        </div>
+        {/* Desktop — logged out auth pills */}
+        {!isAuthenticated && (
+          <div className="ml-auto hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={handleMockSignIn}
+              className="inline-flex h-11 items-center rounded-full bg-primary px-5 text-sm font-bold uppercase tracking-[0.16em] text-primary-foreground neon-button-glow hover:brightness-110 transition"
+            >
+              Join Now
+            </button>
+            <button
+              type="button"
+              onClick={handleMockSignIn}
+              className="inline-flex h-11 items-center rounded-full border border-primary/60 bg-card/60 px-5 text-sm font-bold uppercase tracking-[0.16em] text-foreground hover:bg-card transition"
+            >
+              Log In
+            </button>
+          </div>
+        )}
 
-        {/* Account dropdown — desktop only */}
-        <DropdownMenu>
-          <DropdownMenuTrigger
-            render={
-              <button
-                type="button"
-                aria-label="Account menu"
-                className="hidden md:inline-flex h-11 items-center gap-2 rounded-full border border-border/60 bg-card/60 pl-2 pr-3 hover:bg-card transition"
-              >
-                <Avatar className="size-8 ring-2 ring-primary/60">
-                  <AvatarFallback className="bg-primary/30 text-foreground text-xs">
-                    PL
-                  </AvatarFallback>
-                </Avatar>
-                <span className="text-sm font-medium">Player</span>
-                <ChevronDown className="size-4 opacity-70" />
-              </button>
-            }
-          />
-          <DropdownMenuContent align="end" sideOffset={8} className="w-60 p-2">
-            <DropdownMenuGroup>
-              {ACCOUNT_ITEMS.map((item) => {
-                const Icon = item.icon
-                return (
-                  <DropdownMenuItem
-                    key={item.label}
-                    render={
-                      <Link href={item.href} className="cursor-pointer gap-3 py-2.5 text-sm">
-                        <Icon className="size-4 text-primary" />
-                        {item.label}
-                      </Link>
-                    }
-                  />
-                )
-              })}
-            </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem className="gap-3 py-2.5 text-sm cursor-pointer">
-              <LogOut className="size-4 text-primary" />
-              Sign Out
-            </DropdownMenuItem>
-          </DropdownMenuContent>
-        </DropdownMenu>
+        {/* Desktop — logged in actions */}
+        {isAuthenticated && (
+          <>
+            <div className="hidden md:flex items-center gap-3">
+              <ActionPill href="/purchase" icon={<Ticket className="size-4" />}>
+                Purchase
+              </ActionPill>
+              <ActionPill href="/cashout" icon={<Banknote className="size-4" />}>
+                Cashout
+              </ActionPill>
+              <ActionPill href="/wallet" icon={<WalletCards className="size-4" />}>
+                <span className="font-semibold">$0.00</span>
+                <span className="ml-1 text-[11px] uppercase tracking-wide opacity-80">USD</span>
+              </ActionPill>
+            </div>
+
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                render={
+                  <button
+                    type="button"
+                    aria-label="Account menu"
+                    className="hidden md:inline-flex h-11 items-center gap-2 rounded-full border border-border/60 bg-card/60 pl-2 pr-3 hover:bg-card transition"
+                  >
+                    <Avatar className="size-8 ring-2 ring-primary/60">
+                      <AvatarFallback className="bg-primary/30 text-foreground text-xs">
+                        {user?.initials ?? "PL"}
+                      </AvatarFallback>
+                    </Avatar>
+                    <span className="text-sm font-medium">{user?.name ?? "Player"}</span>
+                    <ChevronDown className="size-4 opacity-70" />
+                  </button>
+                }
+              />
+              <DropdownMenuContent align="end" sideOffset={8} className="w-60 p-2">
+                <DropdownMenuGroup>
+                  {ACCOUNT_ITEMS.map((item) => {
+                    const Icon = item.icon
+                    return (
+                      <DropdownMenuItem
+                        key={item.label}
+                        render={
+                          <Link href={item.href} className="cursor-pointer gap-3 py-2.5 text-sm">
+                            <Icon className="size-4 text-primary" />
+                            {item.label}
+                          </Link>
+                        }
+                      />
+                    )
+                  })}
+                </DropdownMenuGroup>
+                <DropdownMenuSeparator />
+                <DropdownMenuItem
+                  className="gap-3 py-2.5 text-sm cursor-pointer"
+                  onClick={signOut}
+                >
+                  <LogOut className="size-4 text-primary" />
+                  Sign Out
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </>
+        )}
 
         <button
           type="button"
