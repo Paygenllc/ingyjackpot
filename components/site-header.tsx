@@ -18,13 +18,11 @@ import {
   Wallet,
   WalletCards,
   Banknote,
-  ListChecks,
   BarChart3,
 } from "lucide-react"
 import { useState } from "react"
 
 import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -33,7 +31,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Badge } from "@/components/ui/badge"
 
 const NAV_ITEMS = [
@@ -108,32 +106,36 @@ export function SiteHeader() {
 
         {/* Account dropdown */}
         <DropdownMenu>
-          <DropdownMenuTrigger asChild>
-            <Button
-              variant="ghost"
-              className="h-11 gap-2 rounded-full border border-border/60 bg-card/60 px-2 pr-3 hover:bg-card"
-            >
-              <Avatar className="size-8 ring-2 ring-primary/60">
-                <AvatarImage src="/avatar.jpg" alt="" />
-                <AvatarFallback className="bg-primary/30 text-foreground text-xs">
-                  PL
-                </AvatarFallback>
-              </Avatar>
-              <span className="hidden sm:inline text-sm font-medium">Player</span>
-              <ChevronDown className="size-4 opacity-70" />
-            </Button>
-          </DropdownMenuTrigger>
+          <DropdownMenuTrigger
+            render={
+              <button
+                type="button"
+                className="inline-flex h-11 items-center gap-2 rounded-full border border-border/60 bg-card/60 px-2 pr-3 hover:bg-card transition"
+              >
+                <Avatar className="size-8 ring-2 ring-primary/60">
+                  <AvatarFallback className="bg-primary/30 text-foreground text-xs">
+                    PL
+                  </AvatarFallback>
+                </Avatar>
+                <span className="hidden sm:inline text-sm font-medium">Player</span>
+                <ChevronDown className="size-4 opacity-70" />
+              </button>
+            }
+          />
           <DropdownMenuContent align="end" sideOffset={8} className="w-60 p-2">
             <DropdownMenuGroup>
               {ACCOUNT_ITEMS.map((item) => {
                 const Icon = item.icon
                 return (
-                  <DropdownMenuItem key={item.label} asChild>
-                    <Link href={item.href} className="cursor-pointer gap-3 py-2.5 text-sm">
-                      <Icon className="size-4 text-primary" />
-                      {item.label}
-                    </Link>
-                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    key={item.label}
+                    render={
+                      <Link href={item.href} className="cursor-pointer gap-3 py-2.5 text-sm">
+                        <Icon className="size-4 text-primary" />
+                        {item.label}
+                      </Link>
+                    }
+                  />
                 )
               })}
             </DropdownMenuGroup>
@@ -145,27 +147,25 @@ export function SiteHeader() {
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <Button
-          variant="ghost"
-          size="icon"
+        <button
+          type="button"
           aria-label={muted ? "Unmute" : "Mute"}
           onClick={() => setMuted((m) => !m)}
-          className="rounded-full border border-border/60 bg-card/60 hidden sm:inline-flex"
+          className="hidden sm:inline-flex size-10 items-center justify-center rounded-full border border-border/60 bg-card/60 hover:bg-card transition"
         >
           {muted ? <VolumeX className="size-4" /> : <Volume2 className="size-4" />}
-        </Button>
+        </button>
 
-        <Button
-          variant="ghost"
-          size="icon"
+        <button
+          type="button"
           aria-label="Notifications"
-          className="relative rounded-full border border-border/60 bg-card/60"
+          className="relative inline-flex size-10 items-center justify-center rounded-full border border-border/60 bg-card/60 hover:bg-card transition"
         >
           <Bell className="size-4" />
           <Badge className="absolute -top-1 -right-1 size-5 p-0 flex items-center justify-center rounded-full bg-rose-500 text-[10px] text-white">
             1
           </Badge>
-        </Button>
+        </button>
       </div>
 
       {/* Bottom nav */}
@@ -221,4 +221,3 @@ function ActionPill({
   )
 }
 
-export { ListChecks }
